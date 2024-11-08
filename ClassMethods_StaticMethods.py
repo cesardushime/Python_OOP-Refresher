@@ -22,20 +22,11 @@ class Employee():
 
 emp_1 = Employee('Diego', 'Raynman', 50000)
 emp_2 = Employee('Sam', 'Akhma', 34000)
-emp_3 = Employee('Eleana', 'Nova', 45000)
-emp_4 = Employee('Titus', 'Balachndra', 30000)
 
 
-# instance variables
 
-# print('{} has a raise from {} to {}'.format(emp_1.fullName(), emp_1.pay, emp_1.apply_raise()))
-# print('{} has a raise from {} to {}'.format(emp_2.fullName(), emp_2.pay, emp_2.apply_raise()))
-
-# print(emp_1.__dict__) can be used to check attributes of the instance emp_1
-
-# print(emp_1.raise_amount) raise_amount is accessible in either class or its instances
-# print(emp_2.raise_amount)
-# print(Employee.raise_amount)
+print(f'{emp_1.fullName()} got a raise from {emp_1.pay} to {emp_1.apply_raise()}')
+print(f'{emp_2.fullName()} got a raise from {emp_2.pay} to {emp_2.apply_raise()}')
 
 print("There are", Employee.num_of_emps, 'employees')
-print(f"Total Pays for {Employee.num_of_emps} employees is {emp_1.apply_raise() + emp_2.apply_raise() + emp_3.apply_raise() + emp_4.apply_raise(): ,}")
+print(f"Total Pays for {Employee.num_of_emps} employees is {(emp_1.apply_raise() + emp_2.apply_raise()): ,}")
