@@ -36,15 +36,51 @@ class Employee():
             return 'Not a working day'
         return "It's a working day"
 
+# Subclass Developer
 class Developer(Employee):
     raise_amount = 1.08
 
-    
+    def __init__(self, first, last, pay, prog_lang):
+        super().__init__(first, last, pay)
+        self.pro_lang = prog_lang
 
+# Subclass Manager
+class Manager(Employee):
+    def __init__(self, first, last, pay, employees=None):
+        super().__init__(first, last, pay)
+        self.employees = employees
+        # Checking if 'employees' list was provided
+        if self.employees is None:
+            # If not, a new empty list is created for this instance
+            self.employees = []
+        else:
+            # If provided, the passed-in list of employees is used
+            self.employees = employees
+    
+    def add_emp(self, emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+    def remove_emp(self, emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+    
+    def print_emps(self):
+        for emp in self.employees:
+            print('-->', emp.fullName())
 # Employee.set_raise_amount(1.05)
 
-dev_1 = Developer('Diego', 'Raynman', 50000)
-dev_2 = Developer('Sam', 'Akhma', 34000)
+dev_1 = Developer('Diego', 'Raynman', 50000, 'Python')
+dev_2 = Developer('Sam', 'Akhma', 34000, 'Java')
+dev_3 = Developer('Andre', 'Lore', 32000, 'Kotlin')
+dev_4 = Developer('Picaris', 'Baraka', 43000, 'JavaScript')
+dev_5 = Developer('Batman', 'Beloris', 35000, 'Java')
+
+manag_1 = Manager('Cesar', 'Analyst', 50000, [dev_1, dev_2])
+manag_2 = Manager('TopManager', 'Senior', 50000, [dev_1, dev_2, dev_3, dev_4])
+
+print(manag_1.email)
+
+print(manag_2.print_emps())
 
 # emp_str1 = 'John-Doe-70000'
 # emp_str2 = 'Steve-Smith-30000'
@@ -54,6 +90,8 @@ dev_2 = Developer('Sam', 'Akhma', 34000)
 # new_emp1 = Employee.from_string(emp_str1)
 
 
-print(dev_1.fullName())
-print(dev_2.pay)
-print(dev_1.apply_raise())
+# print(dev_1.fullName())
+# print(dev_1.email)
+# print(dev_1.pro_lang)
+
+
