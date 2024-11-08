@@ -78,7 +78,9 @@ dev_5 = Developer('Batman', 'Beloris', 35000, 'Java')
 manag_1 = Manager('Cesar', 'Analyst', 50000, [dev_1, dev_2])
 manag_2 = Manager('TopManager', 'Senior', 50000, [dev_1, dev_2, dev_3, dev_4])
 
-print(manag_1.email)
+manag_1.add_emp(dev_5)
+manag_2.remove_emp(dev_1)
+manag_2.remove_emp(dev_2)
 
 print(manag_2.print_emps())
 
