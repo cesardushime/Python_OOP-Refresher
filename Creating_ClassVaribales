@@ -1,5 +1,5 @@
 class Employee():
-    
+    # class variables
     num_of_emps = 0
     raise_amount = 1.1
     
