@@ -1,4 +1,6 @@
 class Employee():
+    num_of_emps = 0
+    raise_amount = 1.1
     def __init__(self, first, last, pay):
         # data unique to each instance, created using self
         self.first = first
